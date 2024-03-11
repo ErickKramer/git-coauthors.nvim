@@ -17,7 +17,7 @@ and multiselect the results.
 
 - Register the extension with telescope
 
-    `require('telescope').load_extension('githubcoauthors')`
+    `require('telescope').load_extension('coauthors')`
 
 - Add a mapping for
 
@@ -28,3 +28,7 @@ and multiselect the results.
 When you pick your coauthors this plugin will put 2 blank lines below your current
 position in your buffer and then an additional "Co-authored-by:" line for everyone
 selected in the telescope picker.
+
+## Notes
+
+For multi-selection press `Tab` at each author you want to add
