@@ -1,34 +1,40 @@
-# Github-coauthors.nvim
+# Git-coauthors.nvim
 
-This is a telescope extension for adding co-authors in your git commits.  This
-works by looking at anyone that has committed to your repo.  You can fuzzy find
+This is a telescope extension for adding co-authors in your git commits. This
+works by looking at anyone that has committed to your repo. You can fuzzy find
 and multiselect the results.
 
-## Requirements
+## 🧰 Installation
 
-- Neovim (>= 0.5)
-- Telescope
+[lazy.nvim](https://github.com/folke/lazy.nvim)
 
-### Installation
-
-- Packer.nvim (adjust for your preferred plugin manager)
-
-     `use('cwebster2/github-coauthors.nvim')`
+```lua
+{
+	"ErickKramer/git-coauthors.nvim",
+	dependencies = {
+		"nvim-telescope/telescope.nvim",
+	},
+},
+```
 
 - Register the extension with telescope
 
-    `require('telescope').load_extension('coauthors')`
+```lua
+require('telescope').load_extension('coauthors')
+```
 
-- Add a mapping for
+- Add keymaps
 
-    `"<cmd>lua require('telescope').extensions.githubcoauthors.coauthors()<CR>"`
+```lua
+vim.keymap.set("n", "<leader>ga", ":Telescope coauthors<CR>", { desc = "[G]it co-[A]uthors" })
+```
 
-### Using this
+## Usage
 
-When you pick your coauthors this plugin will put 2 blank lines below your current
-position in your buffer and then an additional "Co-authored-by:" line for everyone
-selected in the telescope picker.
-
-## Notes
+The selected authors are inserted in the current bufffer.
 
 For multi-selection press `Tab` at each author you want to add
+
+## Disclaimer
+
+This a slightly modified version from the [original plugin](https://github.com/cwebster2/github-coauthors.nvim)
